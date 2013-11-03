@@ -3,6 +3,7 @@ Zend\Db relational example usage
 
 1. import these sql ( data are fake :) ) :
 
+```sql
 --
 -- Table structure for table `album`
 --
@@ -46,11 +47,13 @@ INSERT INTO `track` (`id`, `title`, `album_id`) VALUES
 (2, 'Aku Tak Biasa', 2),
 (3, 'Grenade', 1),
 (4, 'I like it!', 1);
+```
 
 2. go to :
 
-    http://yourzf2app/testdb
-
+```php
+http://yourzf2app/testdb
+```
 
 reference :
 https://gist.github.com/ralphschindler/6910421
