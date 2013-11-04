@@ -14,7 +14,13 @@ class TestDbController extends AbstractActionController
         echo "<h2>Fetch Track Rows :</h2> <br />";
         \Zend\Debug\Debug::dump($this->getServiceLocator()->get('TestDb\Model\TrackTable')->fetchAll()->toArray());
 
-        echo "<h2>Joined Track & Album Tables :</h2> <br />";
+        echo "<h2>Joined Track & Album Tables represent :</h2>
+         <pre>
+SELECT *
+       FROM album a
+       LEFT JOIN track b ON a.id = b.album_id
+       </pre>
+        <br />";
         $albums = $this->getServiceLocator()->get('AlbumTrackMapper')->findAll();
         \Zend\Debug\Debug::dump($albums);
 
@@ -32,6 +38,14 @@ class TestDbController extends AbstractActionController
             echo '</li>';
         }
         echo '</ul>';
+
+        echo "<h2>Joined Track & Album Tables represent :</h2>
+         <pre>
+select * from album a inner join track b on a.id = b.abum_id
+       </pre>
+        <br />";
+        $albums = $this->getServiceLocator()->get('AlbumTrackMapper')->findAllOnlyMatch();
+        \Zend\Debug\Debug::dump($albums);
 
     }
 }

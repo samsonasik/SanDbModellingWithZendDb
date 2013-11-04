@@ -8,6 +8,8 @@ class Album
     public $artist;
     public $title;
 
+    protected $tracks;
+
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id']))     ? $data['id']     : null;

@@ -4,9 +4,6 @@ Zend\Db relational example usage
 1. import these sql ( data are fake :) ) :
 
 ```sql
---
--- Table structure for table `album`
---
 
 DROP TABLE IF EXISTS `album`;
 CREATE TABLE IF NOT EXISTS `album` (
@@ -14,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `album` (
   `artist` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `album`
@@ -22,7 +19,8 @@ CREATE TABLE IF NOT EXISTS `album` (
 
 INSERT INTO `album` (`id`, `artist`, `title`) VALUES
 (1, 'Bruno Mars', 'Go'),
-(2, 'Syahrini', 'Membahana');
+(2, 'Syahrini', 'Membahana'),
+(3, 'Justin Timberlake', 'Love');
 
 -- --------------------------------------------------------
 
@@ -47,6 +45,7 @@ INSERT INTO `track` (`id`, `title`, `album_id`) VALUES
 (2, 'Aku Tak Biasa', 2),
 (3, 'Grenade', 1),
 (4, 'I like it!', 1);
+
 ```
 
 2. go to :

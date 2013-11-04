@@ -1,6 +1,7 @@
 <?php
 
 namespace TestDb\Model;
+use Zend\Db\Sql;
 
 class AlbumTrackMapper
 {
@@ -13,9 +14,40 @@ class AlbumTrackMapper
         $this->track = $track;
     }
 
+    /**
+       represent :
+          "like" :  SELECT *
+       FROM album a
+       LEFT JOIN track b ON a.id = b.album_id
+    */
     public function findAll()
     {
         $albums = $this->album->getTableGateway()->select();
+        $albums->buffer();
+
+        foreach ($albums as $album) {
+            $trackrows = $this->track->getTableGateway()->select(array('album_id' => $album->id));
+            $album->setTracks(iterator_to_array($trackrows));
+        }
+
+        return $albums;
+    }
+
+    /**
+     * create function represent
+     * "like" : select * from album a inner join track b on a.id = b.album_id
+     */
+    public function findAllOnlyMatch()
+    {
+        $subselect = $this->track->getTableGateway()->getSql()->select();
+        $subselect->columns(array('album_id'));
+
+        $select = $this->album->getTableGateway()->getSql()->select();
+        $select->where->equalTo(
+            'id',    new Sql\Expression('any('.$subselect->getSqlString(new \Zend\Db\Adapter\Platform\Mysql).')')
+        );
+
+        $albums = $this->album->getTableGateway()->selectWith($select);
         $albums->buffer();
 
         foreach ($albums as $album) {
