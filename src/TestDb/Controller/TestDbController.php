@@ -46,6 +46,21 @@ select * from album a inner join track b on a.id = b.abum_id
         <br />";
         $albums = $this->getServiceLocator()->get('AlbumTrackMapper')->findAllOnlyMatch();
         \Zend\Debug\Debug::dump($albums);
+        
+        echo '<ul>';
+        foreach ($albums as $album) {
+            echo  '<li>';
 
+            echo $album->artist ;
+            echo '<ul>';
+                foreach ($album->getTracks() as $i => $track) {
+                    echo '<li>' . ($i+1) . ': ' .  $track->title  . '</li>';
+                }
+            echo '</ul>';
+
+            echo '</li>';
+        }
+        echo '</ul>';
+        
     }
 }

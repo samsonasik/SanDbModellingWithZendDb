@@ -44,7 +44,7 @@ class AlbumTrackMapper
 
         $select = $this->album->getTableGateway()->getSql()->select();
         $select->where->equalTo(
-            'id',    new Sql\Expression('any('.$subselect->getSqlString(new \Zend\Db\Adapter\Platform\Mysql).')')
+            'id',    new Sql\Expression('any('.$subselect->getSqlString($this->track->getTableGateway()->getAdapter()->getPlatform()).')')
         );
 
         $albums = $this->album->getTableGateway()->selectWith($select);
