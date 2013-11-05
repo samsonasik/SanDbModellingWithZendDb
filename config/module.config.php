@@ -10,6 +10,7 @@ return array(
         'factories' => array(
             'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => function($controller) {
                 $controller = new SanDbModellingWithZendDbController($controller->getServiceLocator()->get('AlbumTrackMapper'));
+
                 return $controller;
             },
         ),

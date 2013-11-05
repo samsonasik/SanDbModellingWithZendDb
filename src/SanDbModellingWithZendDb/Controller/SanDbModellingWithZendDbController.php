@@ -9,12 +9,12 @@ use Zend\View\Model\ViewModel;
 class SanDbModellingWithZendDbController extends AbstractActionController
 {
     protected $mapper;
-    
+
     public function __construct(AlbumTrackMapper $mapper)
     {
-        $this->mapper = $mapper;    
+        $this->mapper = $mapper;
     }
-    
+
     public function indexAction()
     {
         return new ViewModel(array(
@@ -22,6 +22,6 @@ class SanDbModellingWithZendDbController extends AbstractActionController
             'fetchtrackrows' => $this->mapper->getTrack()->fetchAll()->toArray(),
             'findtwotablesAll' => $this->mapper->findAll(),
             'findtwotablesonlyForMatch' => $this->mapper->findAllOnlyMatch()
-        )); 
+        ));
     }
 }

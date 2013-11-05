@@ -17,7 +17,7 @@ class AlbumTable
 
     public function getTableGateway()
     {
-    return $this->tableGateway;
+        return $this->tableGateway;
     }
 
     public function fetchAll()
