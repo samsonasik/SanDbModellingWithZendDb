@@ -48,7 +48,7 @@ INSERT INTO `track` (`id`, `title`, `album_id`) VALUES
 
 ```
 
-*. go to :
+* go to :
 
 ```php
 http://yourzf2app/zenddbmodelling
