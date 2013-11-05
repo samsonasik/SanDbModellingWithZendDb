@@ -1,6 +1,11 @@
 Zend\Db relational example usage
 --------------------------------
 
+Why Modelling ? Why not Just "join" direclty ?
+----------------------------------------------
+It show us what property/column comes from.
+
+
 * import these sql ( data are fake :) ) :
 
 ```sql
