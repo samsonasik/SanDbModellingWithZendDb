@@ -13,6 +13,16 @@ class AlbumTrackMapper
         $this->album = $album;
         $this->track = $track;
     }
+    
+    public function getAlbum()
+    {
+        return $this->album;
+    }
+    
+    public function getTrack()
+    {
+        return $this->track;
+    }
 
     /**
        represent :

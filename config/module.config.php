@@ -2,11 +2,16 @@
 
 namespace SanDbModellingWithZendDb;
 
+use SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDbController;
+
 return array(
 
     'controllers' => array(
-        'invokables' => array(
-            'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => 'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDbController',
+        'factories' => array(
+            'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => function($controller) {
+                $controller = new SanDbModellingWithZendDbController($controller->getServiceLocator()->get('AlbumTrackMapper'));
+                return $controller;
+            },
         ),
     ),
 
