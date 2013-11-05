@@ -1,0 +1,24 @@
+{
+    "name": "san/san-db-modelling-with-zend-db",
+    "type": "library",
+    "description": "ZF2 Module that utilize example of modelling with Zend\Db",
+    "keywords": ["Auth","zf2","Db"],
+    "homepage": "https://github.com/samsonasik/SanAuthWithDbSaveHandler",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdul Malik Ikhsan",
+            "email": "samsonasik@gmail.com",
+            "homepage": "http://samsonasik.wordpress.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}
