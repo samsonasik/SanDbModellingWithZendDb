@@ -1,7 +1,7 @@
 Zend\Db relational example usage
 --------------------------------
 
-1. import these sql ( data are fake :) ) :
+* import these sql ( data are fake :) ) :
 
 ```sql
 
@@ -48,7 +48,7 @@ INSERT INTO `track` (`id`, `title`, `album_id`) VALUES
 
 ```
 
-2. go to :
+*. go to :
 
 ```php
 http://yourzf2app/zenddbmodelling
