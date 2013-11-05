@@ -1,18 +1,18 @@
 <?php
 
-namespace TestDb\Controller;
+namespace SanDbModellingWithZendDb\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
-class TestDbController extends AbstractActionController
+class SanDbModellingWithZendDbController extends AbstractActionController
 {
     public function indexAction()
     {
         echo "<h2>Fetch Album Rows :</h2> <br />";
-        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('TestDb\Model\AlbumTable')->fetchAll()->toArray());
+        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('SanDbModellingWithZendDb\Model\AlbumTable')->fetchAll()->toArray());
 
         echo "<h2>Fetch Track Rows :</h2> <br />";
-        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('TestDb\Model\TrackTable')->fetchAll()->toArray());
+        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('SanDbModellingWithZendDb\Model\TrackTable')->fetchAll()->toArray());
 
         echo "<h2>Joined Track & Album Tables represent :</h2>
          <pre>
@@ -61,6 +61,5 @@ select * from album a inner join track b on a.id = b.abum_id
             echo '</li>';
         }
         echo '</ul>';
-        
     }
 }

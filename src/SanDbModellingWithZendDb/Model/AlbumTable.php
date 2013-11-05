@@ -1,14 +1,13 @@
 <?php
 
-namespace TestDb\Model;
+namespace SanDbModellingWithZendDb\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
-class TrackTable
+class AlbumTable
 {
     protected $tableGateway;
-
-   public $table = 'track'; // add this
+    public $table = 'album'; // add this
 
     //set table gateway via setter
     public function setTableGateway(TableGateway $tableGateway) //set table gateway via setter
@@ -16,14 +15,14 @@ class TrackTable
         $this->tableGateway = $tableGateway;
     }
 
-    public function fetchAll()
-    {
-        return $this->tableGateway->select();
-    }
-
     public function getTableGateway()
     {
     return $this->tableGateway;
+    }
+
+    public function fetchAll()
+    {
+        return $this->tableGateway->select();
     }
 
     public function getAlbum($id)
@@ -38,12 +37,12 @@ class TrackTable
         return $row;
     }
 
-    public function saveAlbum(Track $track)
+    public function saveAlbum(Album $album)
     {
     $data = array(
-            'title'  => $track->title,
-         'album_id' => $track->album_id,
-     );
+             'artist' => $album->artist,
+             'title'  => $album->title,
+         );
 
     $id = (int) $album->id;
         if ($id == 0) {
@@ -52,7 +51,7 @@ class TrackTable
             if ($this->getAlbum($id)) {
                 $this->tableGateway->update($data, array('id' => $id));
             } else {
-                throw new \Exception('Track id does not exist');
+                throw new \Exception('Album id does not exist');
             }
         }
     }

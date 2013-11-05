@@ -1,6 +1,6 @@
 <?php
 
-namespace TestDb\Factory\Model;
+namespace SanDbModellingWithZendDb\Factory\Model;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

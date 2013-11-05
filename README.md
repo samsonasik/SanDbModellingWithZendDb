@@ -51,7 +51,7 @@ INSERT INTO `track` (`id`, `title`, `album_id`) VALUES
 2. go to :
 
 ```php
-http://yourzf2app/testdb
+http://yourzf2app/zenddbmodelling
 ```
 
 reference :

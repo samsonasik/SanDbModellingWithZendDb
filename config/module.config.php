@@ -1,23 +1,23 @@
 <?php
 
-namespace TestDb;
+namespace SanDbModellingWithZendDb;
 
 return array(
 
     'controllers' => array(
         'invokables' => array(
-            'TestDb\Controller\TestDb' => 'TestDb\Controller\TestDbController',
+            'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => 'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDbController',
         ),
     ),
 
     'service_manager' => array(
         'abstract_factories' => array(
-            'TestDb\Factory\Model\TableModelAbstractFactory'
+            'SanDbModellingWithZendDb\Factory\Model\TableModelAbstractFactory'
         ),
         'factories' => array(
             'AlbumTrackMapper' => function($sm) {
-                $mapper = new Model\AlbumTrackMapper($sm->get('TestDb\Model\AlbumTable'),
-                                                     $sm->get('TestDb\Model\TrackTable'));
+                $mapper = new Model\AlbumTrackMapper($sm->get('SanDbModellingWithZendDb\Model\AlbumTable'),
+                                                     $sm->get('SanDbModellingWithZendDb\Model\TrackTable'));
 
                 return $mapper;
             },
@@ -29,13 +29,13 @@ return array(
             'testdb' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/testdb[/:action][/:id]',
+                    'route'    => '/zenddbmodelling[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'TestDb\Controller\TestDb',
+                        'controller' => 'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb',
                         'action'     => 'index',
                     ),
                 ),
@@ -45,7 +45,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'testdb' => __DIR__ . '/../view',
+            'sandbmodellingwithzenddb' => __DIR__ . '/../view',
         ),
     ),
 );

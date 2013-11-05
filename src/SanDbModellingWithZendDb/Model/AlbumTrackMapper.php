@@ -1,6 +1,6 @@
 <?php
 
-namespace TestDb\Model;
+namespace SanDbModellingWithZendDb\Model;
 use Zend\Db\Sql;
 
 class AlbumTrackMapper
