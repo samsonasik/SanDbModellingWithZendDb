@@ -8,11 +8,7 @@ return array(
 
     'controllers' => array(
         'factories' => array(
-            'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => function($controller) {
-                $controller = new SanDbModellingWithZendDbController($controller->getServiceLocator()->get('AlbumTrackMapper'));
-
-                return $controller;
-            },
+            'SanDbModellingWithZendDb\Controller\SanDbModellingWithZendDb' => 'SanDbModellingWithZendDb\Factory\Controller\SanDbModellingWithZendDbControllerFactory',
         ),
     ),
 
@@ -21,12 +17,7 @@ return array(
             'SanDbModellingWithZendDb\Factory\Model\TableModelAbstractFactory'
         ),
         'factories' => array(
-            'AlbumTrackMapper' => function($sm) {
-                $mapper = new Model\AlbumTrackMapper($sm->get('SanDbModellingWithZendDb\Model\AlbumTable'),
-                                                     $sm->get('SanDbModellingWithZendDb\Model\TrackTable'));
-
-                return $mapper;
-            },
+            'AlbumTrackMapper' => 'SanDbModellingWithZendDb\Factory\Model\AlbumTrackMapperFactory',
         ),
     ),
 

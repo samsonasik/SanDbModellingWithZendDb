@@ -40,12 +40,12 @@ class TrackTable
 
     public function saveAlbum(Track $track)
     {
-    $data = array(
-            'title'  => $track->title,
-         'album_id' => $track->album_id,
-     );
-
-    $id = (int) $album->id;
+        $data = array(
+                'title'  => $track->title,
+             'album_id' => $track->album_id,
+         );
+    
+        $id = (int) $album->id;
         if ($id == 0) {
             $this->tableGateway->insert($data);
         } else {
