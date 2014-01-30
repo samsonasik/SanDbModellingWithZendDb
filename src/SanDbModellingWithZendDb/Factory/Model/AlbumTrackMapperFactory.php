@@ -9,7 +9,7 @@ class AlbumTrackMapperFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $mapper = new \SanDbModellingWithZendDbModel\Model\AlbumTrackMapper($serviceLocator->get('SanDbModellingWithZendDb\Model\AlbumTable'),
+        $mapper = new \SanDbModellingWithZendDb\Model\AlbumTrackMapper($serviceLocator->get('SanDbModellingWithZendDb\Model\AlbumTable'),
                                                      $serviceLocator->get('SanDbModellingWithZendDb\Model\TrackTable'));
 
         return $mapper;
