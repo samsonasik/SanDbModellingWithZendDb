@@ -32,9 +32,10 @@ class AlbumTrackMapper
     */
     public function findAll()
     {
-        $albums = $this->album->getTableGateway()->select();
-        $albums->buffer();
+        $albumResult = $this->album->getTableGateway()->select();
+        $albumResult->buffer();
 
+        $albums = iterator_to_array($albumResult);
         foreach ($albums as $album) {
             $trackrows = $this->track->getTableGateway()->select(array('album_id' => $album->id));
             $album->setTracks(iterator_to_array($trackrows));
@@ -54,12 +55,13 @@ class AlbumTrackMapper
 
         $select = $this->album->getTableGateway()->getSql()->select();
         $select->where->equalTo(
-            'id',    new Sql\Expression('any('.$subselect->getSqlString($this->track->getTableGateway()->getAdapter()->getPlatform()).')')
+            'id', new Sql\Expression('any('.$subselect->getSqlString($this->track->getTableGateway()->getAdapter()->getPlatform()).')')
         );
 
-        $albums = $this->album->getTableGateway()->selectWith($select);
-        $albums->buffer();
+        $albumResult = $this->album->getTableGateway()->selectWith($select);
+        $albumResult->buffer();
 
+        $albums = iterator_to_array($albumResult);
         foreach ($albums as $album) {
             $trackrows = $this->track->getTableGateway()->select(array('album_id' => $album->id));
             $album->setTracks(iterator_to_array($trackrows));
